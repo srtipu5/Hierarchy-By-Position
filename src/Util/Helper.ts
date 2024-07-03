@@ -1,3 +1,7 @@
+export const log = (...params: any) => {
+  console.log(new Date(), ...params)
+}
+
 export const getErrorMessage = (errorCode: number): string => {
     switch (errorCode) {
       case 401:

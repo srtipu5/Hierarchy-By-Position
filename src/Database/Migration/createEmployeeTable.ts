@@ -17,7 +17,6 @@ export class CreateEmployeeTable1632254622277 implements MigrationInterface {
             ]
         }));
 
-        // Adding foreign key constraint for parent relationship
         await queryRunner.createForeignKey("employee", new TableForeignKey({
             columnNames: ["parentId"],
             referencedColumnNames: ["id"],
@@ -27,7 +26,6 @@ export class CreateEmployeeTable1632254622277 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        // Drop foreign key constraint first
         const employeeTable = await queryRunner.getTable("employee");
         const foreignKey = employeeTable?.foreignKeys.find(fk => fk.columnNames.indexOf("parentId") !== -1);
         if (foreignKey) {

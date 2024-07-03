@@ -6,6 +6,7 @@ describe("End-to-End Tests: API", () => {
   let token: string;
   beforeAll(async () => {
     await DatabaseClient.connect();
+    
     const authResponse = await request(app)
       .post("/api/auth")
       .send({ username: "testUsername", password: "testPassword" });

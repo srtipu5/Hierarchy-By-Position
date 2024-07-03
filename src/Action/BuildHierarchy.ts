@@ -39,5 +39,5 @@ export const buildHierarchy = async (id: number): Promise<EmployeeHierarchy[] | 
 
   hierarchy.forEach(removeEmptyChild);
 
-  return hierarchy.length > 0 ? hierarchy[0].child : null;
+  return hierarchy.length > 0 ? hierarchy[0]?.child : null;
 };

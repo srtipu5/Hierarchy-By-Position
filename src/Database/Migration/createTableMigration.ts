@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import { createConnection } from 'typeorm';
 import { CreateEmployeeTable1632254622277 } from './createEmployeeTable';
+import { log } from "../../Util/Helper";
 
 (async () => {
   try {
@@ -16,13 +17,14 @@ import { CreateEmployeeTable1632254622277 } from './createEmployeeTable';
       synchronize: false,
       logging: false,
     });
-    console.log(`Connected to DB For Table Create Migrations ... ${process.env.DB_HOST}`);
+
+    log(`Connected to DB For Table Create Migrations ... ${process.env.DB_HOST}`);
 
     await connection.runMigrations();
-    console.log("Table Create Migrations ran successfully");
+    log("Table Create Migrations ran successfully");
 
     await connection.close();
   } catch (error) {
-    console.log("Migration Failed!", error);
+    log("Migration Failed!", error);
   }
 })();

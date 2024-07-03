@@ -1,5 +1,6 @@
 import { createConnection } from "typeorm";
 import { EmployeeModel } from "../Database/Model/Employee";
+import { log } from "../Util/Helper";
 
 let connection: any;
 export default {
@@ -16,18 +17,18 @@ export default {
         synchronize: false,
         logging: false,
       });
-      console.log(`Connected to DB ... ${process.env.DB_HOST}`);
+      log(`Connected to DB ... ${process.env.DB_HOST}`);
     } catch (error) {
-      console.log("DB Connection Failed !", error);
+      log("DB Connection Failed !", error);
     }
   },
 
   async close() {
     try {
       await connection.close();
-      console.log("DB Connection Closed.");
+      log("DB Connection Closed.");
     } catch (error) {
-      console.log("Failed to close DB connection", error);
+      log("Failed to close DB connection", error);
     }
   },
 };

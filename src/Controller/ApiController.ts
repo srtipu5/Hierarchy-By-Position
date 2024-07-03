@@ -1,6 +1,5 @@
 import Controller from "./Controller";
 import { NextFunction, Request, Response } from "express";
-import { EmployeeModel } from "../Database/Model/Employee";
 import { buildHierarchy } from "../Action/BuildHierarchy";
 import { authenticate } from "../Action/Authenticate";
 import { EmployeeHierarchyQueryParams } from "../Request/EmployeeHierarchyQueryParams";
@@ -9,7 +8,7 @@ import { EmployeeIDValidator } from "../Validator/EmployeeIDValidator";
 import { UserValidator } from "../Validator/UserValidator";
 import { JWTValidator } from "../Middleware/JWTValidatorMiddleware";
 import { AuthResponse } from "../Type/AuthResponse";
-import { getErrorMessage } from "../Util/Helper";
+import { getErrorMessage, log } from "../Util/Helper";
 import { fetchDataFromAnotherApi } from "../Service/EmployeeHierarchyService";
 
 export default class ApiController extends Controller {
@@ -23,7 +22,7 @@ export default class ApiController extends Controller {
       const hierarchicalEmployees = await buildHierarchy(id);
       res.json(hierarchicalEmployees);
     } catch (error) {
-      console.log(error);
+      log(error);
       next(error);
     }
   }
@@ -50,7 +49,7 @@ export default class ApiController extends Controller {
 
       res.json({ token: authResponse.token });
     } catch (error) {
-      console.log(error);
+      log(error);
       next(error);
     }
   }
@@ -64,7 +63,7 @@ export default class ApiController extends Controller {
       const hierarchicalEmployees = await fetchDataFromAnotherApi(id);
       res.json(hierarchicalEmployees);
     } catch (error) {
-      console.log(error);
+      log(error);
       next(error);
     }
   }
