@@ -1,4 +1,4 @@
-# Hierarchy-By-Position
+# Employee Hierarchy By Position
 
 ## Table of Contents
 - [Clone the Repository](#clone-the-repository)
