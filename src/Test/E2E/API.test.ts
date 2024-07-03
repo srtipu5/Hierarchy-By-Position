@@ -1,6 +1,6 @@
 import request from "supertest";
-import app from "../src/Provider/HttpServer";
-import DatabaseClient from "../src/Provider/DatabaseClient";
+import app from "../../Provider/HttpServer";
+import DatabaseClient from "../../Provider/DatabaseClient";
 
 describe("End-to-End Tests: API", () => {
   let token: string;

@@ -8,7 +8,7 @@ import { log } from "./Util/Helper";
 
 server.listen(process.env.HTTP_PORT, async () => {
   await database.connect();
-  // await redis.connect();
+  await redis.connect();
   log(
     `[server]: Server is running at http://localhost:${process.env.HTTP_PORT}`
   );

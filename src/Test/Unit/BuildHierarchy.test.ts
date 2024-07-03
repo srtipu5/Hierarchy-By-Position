@@ -1,6 +1,6 @@
-import DatabaseClient from "../src/Provider/DatabaseClient";
-import { buildHierarchy } from "../src/Action/BuildHierarchy";
-import { EmployeeHierarchy } from "../src/Type/EmployeeHierarchy";
+import DatabaseClient from "../../Provider/DatabaseClient";
+import { buildHierarchy } from "../../Action/BuildHierarchy";
+import { EmployeeHierarchy } from "../../Type/EmployeeHierarchy";
 
 describe("BuildHierarchy Action Test", () => {
   beforeAll(async () => {
